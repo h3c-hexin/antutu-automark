@@ -1,0 +1,20 @@
+# Build
+AntutuAutoRun/.gradle/
+AntutuAutoRun/app/build/
+AntutuAutoRun/build/
+*.apk
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+*.swp
+
+# Secrets
+*.jks
+platform.jks
+
+# Claude local
+.claude/settings.local.json

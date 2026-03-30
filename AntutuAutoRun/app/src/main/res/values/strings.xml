@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">安兔兔循环跑分</string>
+    <string name="accessibility_desc">监控安兔兔跑分状态，自动循环跑分</string>
+</resources>
