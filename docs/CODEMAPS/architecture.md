@@ -34,4 +34,3 @@ IDLE → LAUNCHING → WAITING_START → TESTING → READING_SCORE → COOLDOWN 
 
 - `MainActivity.onCreate()` — UI 入口
 - `AntutuAccessibilityService.onAccessibilityEvent()` — 事件驱动入口
-- `antutu_loop.sh` — ADB 脚本替代方案

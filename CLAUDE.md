@@ -5,7 +5,6 @@
 ## 技术栈
 
 - Android App: Kotlin, Gradle KTS, SDK 35, minSdk 26
-- 自动化脚本: Bash + ADB
 - UI 自动化: AccessibilityService
 - 结果上报: 飞书 Webhook
 
