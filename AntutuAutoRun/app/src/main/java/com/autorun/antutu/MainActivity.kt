@@ -154,7 +154,8 @@ class MainActivity : AppCompatActivity() {
             return
         }
         val record = records[index]
-        FeishuUploader.upload(name, record.total, record.time) { success ->
+        val sn = FeishuUploader.getSerialNo()
+        FeishuUploader.upload(name, record.total, record.time, sn) { success ->
             record.uploaded = success
             runOnUiThread { refreshScoreHistory() }
             retryUploadAll(name, records, index + 1)

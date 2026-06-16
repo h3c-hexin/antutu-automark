@@ -411,7 +411,8 @@ class AntutuAccessibilityService : AccessibilityService() {
             // 上传到飞书
             if (userName.isNotBlank()) {
                 log("上传成绩到飞书...")
-                FeishuUploader.upload(userName, score.total, score.time) { success ->
+                val sn = FeishuUploader.getSerialNo()
+                FeishuUploader.upload(userName, score.total, score.time, sn) { success ->
                     score.uploaded = success
                     if (success) {
                         log("第 $roundLabel 轮成绩上传成功")
