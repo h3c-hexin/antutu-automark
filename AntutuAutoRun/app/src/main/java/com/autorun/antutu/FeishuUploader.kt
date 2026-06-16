@@ -14,7 +14,18 @@ object FeishuUploader {
 
     private val handler = Handler(Looper.getMainLooper())
 
-    fun upload(name: String, data: String, time: String, callback: (Boolean) -> Unit) {
+    fun getSerialNo(): String {
+        return try {
+            val process = Runtime.getRuntime().exec(arrayOf("getprop", "ro.boot.serialno"))
+            val result = process.inputStream.bufferedReader().readText().trim()
+            process.waitFor()
+            result.ifEmpty { "unknown" }
+        } catch (_: Exception) {
+            "unknown"
+        }
+    }
+
+    fun upload(name: String, data: String, time: String, sn: String, callback: (Boolean) -> Unit) {
         Thread {
             var success = false
             for (i in 1..MAX_RETRY) {
@@ -26,7 +37,7 @@ object FeishuUploader {
                     conn.readTimeout = 10_000
                     conn.doOutput = true
 
-                    val json = """{"name":"$name","data":"$data","time":"$time"}"""
+                    val json = """{"name":"$name","data":"$data","time":"$time","sn":"$sn"}"""
                     OutputStreamWriter(conn.outputStream).use { it.write(json) }
 
                     val code = conn.responseCode
